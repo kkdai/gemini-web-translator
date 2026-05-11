@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Web Translator",
+  "version": "0.1.0",
+  "description": "使用 Chrome 內建 AI (Gemini Nano) 的網頁翻譯工具",
+  "permissions": [
+    "aiLanguageModelOriginTrial",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
